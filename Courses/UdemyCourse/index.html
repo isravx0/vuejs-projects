@@ -5,27 +5,45 @@
   <title>Learning Vue</title>
   <script src="https://unpkg.com/vue@3.0.0"></script>
   <style>
-    .box {
-      padding: 100px 0;
-      width: 400px;
-      text-align: center;
-      background: #ddd;
-      margin: 20px;
-      display: inline-block;
+    body{
+      background: #eee;
+      max-width: 960px;
+      margin: 20px auto;
     }
+    p, h3, ul{
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+      margin: 20px 0;
+      padding: 10px 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    img{
+      width: 100px;
+      height: 150px;
+      margin-right: 20px;
+
+    }
+    li.fav{
+      background: #ff9ed2;
+    }
+
   </style>
 </head>
 <body>
   <h1>Hello, Vue :)</h1>
 
   <div id="app">
-    <!-- attribute binding -->
-    <!-- <a v-bind:href="url">Best website ever!</a> -->
-    <a :href="url">Best website ever!</a>
-
     <div v-if="showBooks">
       <ul>
-        <li v-for="book in books">
+        <li v-for="book in books" :class="{ fav: book.isFav }">
           <img :src="book.img" :alt="book.title">
           <h3>{{ book.title }}</h3>
           <p>{{ book.author }}</p>
