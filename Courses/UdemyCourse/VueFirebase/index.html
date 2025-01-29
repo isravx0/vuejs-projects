@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Firebase</title>
     <script src="https://unpkg.com/vue@3.0.2/dist/vue.global.js"></script>
+    <style>
+        .box{
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,15 +30,16 @@
             <span v-else> Show Books</span>
         </button>
 
+        <br>
+        <!-- Mouse events -->
+         <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+         <div class="box" @mouseleave="handleEvent">mouseleave</div>
+         <div class="box" @dblclick="handleEvent">double click</div>
+         <div class="box" @mousemove="handleMousemove">position - {{x}} {{y}} </div>
 
-        <div v-show="showBooks"> Currently showing books</div>
+
     </div>
   
     <script src="app.js"></script>
 </body>
 </html>
-
-<!-- Different between v-if and v-show -->
-<!-- v-if: if the condition is false, the element will not be rendered -->
-<!-- v-show: if the condition is false, the element will be rendered but hidden / the style will be changed here, display none -->
- 
