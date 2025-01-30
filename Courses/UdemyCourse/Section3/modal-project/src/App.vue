@@ -1,8 +1,6 @@
 <template>
   <h1>{{ title }} </h1>
-  <input type="text" ref="name" />
-  <button @click="handleClick">Click me</button>
-  <Modal />
+  <Modal :header="header" :text="text" theme="sale" />
 </template>
 
 <script>
@@ -11,22 +9,15 @@ import Modal from './components/Modal.vue';
 
 export default {
   name: 'App',
-  components: {
-    Modal
-  },
+  components: {Modal},
 
   data() {
     return {
-      title: 'My First Vue App :)'
+      title: 'My First Vue App :)',
+      header: 'Sign up for the Giveaway!',
+      text: 'Grab your chance to win a free ticket to the concert!'
     }
   },
-  methods: {
-    handleClick() {
-      console.log('Hello ' + this.$refs.name.value) //accessing the refs value (any ref, so we use ref)
-      this.$refs.name.classList.add('active')
-      this.$refs.name.focus() //focus on the input
-    }
-  }
 }
 </script>
 
