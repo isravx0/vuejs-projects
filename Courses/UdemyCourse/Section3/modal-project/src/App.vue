@@ -1,8 +1,8 @@
 <template>
   <h1>{{ title }} </h1>
   <p> Welcome...</p>
-  <div>
-    <modal :header="header" :text="text" theme="sale" v-if="showModal" @click="toggleModel"></modal>
+  <div v-if="showModal">
+      <modal :header="header" :text="text" theme="sale" @close="toggleModel"></modal>
   </div>
   <button @click="toggleModel">Open model </button>
 </template>
