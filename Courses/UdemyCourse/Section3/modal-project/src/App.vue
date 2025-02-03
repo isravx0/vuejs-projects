@@ -11,13 +11,22 @@
         <p> Grab your ninja sword fot half price!</p>
       </modal>
   </div>
-  <button @click.alt="toggleModel">Open model (alt) </button>
+
+  <div v-if="showModalTwo">
+      <modal @close="toggleModelTwo">
+        <h1> Ninja Training</h1>
+        <p> Learn the art of ninjutsu</p>
+      </modal>
+  </div>
+
+  <button @click="toggleModel">Open model one </button>
+  <button @click="toggleModelTwo">Open model Two </button>
+
 </template>
 
 <script>
+
 import Modal from './components/Modal.vue';
-
-
 export default {
   name: 'App',
   components: {Modal},
@@ -25,14 +34,16 @@ export default {
   data() {
     return {
       title: 'My First Vue App :)',
-      header: 'Sign up for the Giveaway!',
-      text: 'Grab your chance to win a free ticket to the concert!',
-      showModal: false
+      showModal: false,
+      showModalTwo: false,
     }
   },
   methods: {
     toggleModel() {
       this.showModal = !this.showModal;
+    },
+    toggleModelTwo(){
+      this.showModalTwo = !this.showModalTwo;
     }
   }
 }
