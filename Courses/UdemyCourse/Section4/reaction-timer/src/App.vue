@@ -1,14 +1,29 @@
 <template>
   <h1> Ninja Reaction Time Game</h1>
+  <button @click="start" :disabled="isPlaying"> Play</button>
+  <Block v-if="isPlaying" :delay="delay"/>
+
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+<script>
+import Block from './components/Block.vue'
 
-@Options({
-  components: {},
-})
-export default class App extends Vue {}
+export default {
+  name: 'App',
+  components: { Block },
+  data() {
+    return {
+      isPlaying: false,
+      delay: null,
+      }
+    },
+  methods: {
+    start() {
+      this.delay = 2000 + Math.floor(Math.random() * 5000); //between 2 and 7 seconds
+      this.isPlaying = true
+    }
+  }
+}
 </script>
 
 <style>
