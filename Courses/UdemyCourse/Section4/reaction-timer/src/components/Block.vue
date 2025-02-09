@@ -28,7 +28,7 @@ export default {
         },
         stopTimer() {
             clearInterval(this.timer)
-            console.log(this.reactionTime)
+            this.$emit('end' , this.reactionTime) //emit is used to send data from child to parent
         }
     }
 }
